@@ -1,20 +1,27 @@
 from flask import Flask, request
 import joblib
-import librosa
 import numpy as np
 
 app = Flask(__name__)
 
-result_proba_dict = {}
+result_proba_dict = {"data": "default"}
 
 @app.route("/", methods=["GET"])
 def home():
     return result_proba_dict
 
-@app.route("/process_audio", methods=["POST"])
+@app.route("/override_result_dict", methods=["GET", "POST"])
+def override_result_dict():
+    global result_proba_dict
+    json = request.json
+    result_proba_dict = json
+    return "done", 200
+
+@app.route("/process_audio", methods=["GET", "POST"])
 def process_audio():
     global result_proba_dict
     json = request.json
+    result_proba_dict = json
     print(json["avgCoeff"])
 
     avg_initial_coeff = np.array(json["avgCoeff"])
