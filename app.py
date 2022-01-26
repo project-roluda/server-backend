@@ -8,7 +8,7 @@ result_proba_dict = {"data": "default"}
 
 @app.route("/", methods=["GET"])
 def home():
-    return result_proba_dict
+    return str(result_proba_dict)+" new update"
 
 @app.route("/override_result_dict", methods=["GET", "POST"])
 def override_result_dict():
