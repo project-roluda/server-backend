@@ -13,14 +13,14 @@ def home():
 @app.route("/override_result_dict", methods=["GET", "POST"])
 def override_result_dict():
     global result_proba_dict
-    json = request.json
+    json = request.get_json(force=True)
     result_proba_dict = json
     return "done", 200
 
 @app.route("/process_audio", methods=["GET", "POST"])
 def process_audio():
     global result_proba_dict
-    json = request.json
+    json = request.get_json(force=True)
     result_proba_dict = json
     print(json["avgCoeff"])
 
