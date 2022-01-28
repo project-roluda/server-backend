@@ -61,9 +61,9 @@ def respiration():
     result_proba_dict["status"] = "breathe"
     for i in range(3):
         result_proba_dict["displayText"] = "Inhale"
-        time.sleep(5)
+        time.sleep(1.5)
         result_proba_dict["displayText"] = "Exhale"
-        time.sleep(5)
+        time.sleep(1.5)
     result_proba_dict["status"] = "processing"
     result_proba_dict["displayText"] = "Processing data ..."
     return "done"
