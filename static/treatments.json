@@ -1,0 +1,12 @@
+{
+    "Asthma": "Short-acting beta antagonists (such as ProAir HFA) (source: Mayo Clinic)",
+    "Bronchiectasis": "Positive expiratory pressure (PEP), antibiotics, macrolides (source: Cleveland Clinic)",
+    "Bronchiolitis": "Supportive care at home. (source: Mayo Clinic)",
+    "COPD": "Ipratropium, Albuterol Levalbuterol (source: Mayo Clinic)",
+    "Healthy": "You are a healthy individual.",
+    "LRTI": "Ibuprofen, naproxen, aspirin (source: Temple Health)",
+    "Pneumonia": "Ibuprofen, aspirin, tylenol, antibiotics (source: Mayo Clinic)",
+    "URTI": "Penicillin, amoxicillin (souce: Cleveland Clinic)"
+
+
+}

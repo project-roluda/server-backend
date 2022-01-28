@@ -6,6 +6,8 @@ from src.shared import global_dict
 from src.prediction import Patient
 import time
 
+import json as json_lib
+
 app = Flask(__name__)
 
 result_proba_dict = global_dict
@@ -34,6 +36,16 @@ def process_audio():
 
     result_proba_dict["diagnostics"] = diagnostic_prediction
     result_proba_dict["status"] = "result"
+
+    list_of_classes = list(diagnostic_prediction.keys())
+    max_class = list_of_classes[0]
+
+    for key in list_of_classes:
+        if diagnostic_prediction[key] > diagnostic_prediction[max_class]:
+            max_class = key 
+
+    treatments = json_lib.load(open("static/treatments.json", 'r'))
+    result_proba_dict["treatment"] = treatments[max_class]
 
     return "done"
 
