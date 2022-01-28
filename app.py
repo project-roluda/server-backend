@@ -1,14 +1,18 @@
 from flask import Flask, request
 import joblib
 import numpy as np
+import requests
+from src.shared import global_dict
+from src.prediction import Patient
+import time
 
 app = Flask(__name__)
 
-result_proba_dict = {"data": "default"}
+result_proba_dict = global_dict
 
 @app.route("/", methods=["GET"])
 def home():
-    return str(result_proba_dict)+" new update"
+    return result_proba_dict
 
 @app.route("/override_result_dict", methods=["GET", "POST"])
 def override_result_dict():
@@ -21,34 +25,48 @@ def override_result_dict():
 def process_audio():
     global result_proba_dict
     json = request.get_json(force=True)
-    result_proba_dict = json
     print(json["avgCoeff"])
 
     avg_initial_coeff = np.array(json["avgCoeff"])
-    ml_model = joblib.load("static/knn.sav")
 
-    """
-    audio_file = request.files["file"]
-    audio_file.save("static/sample_audio.wav")
+    patient = Patient()
+    diagnostic_prediction = patient.post_data_to_azure(avg_initial_coeff)
+
+    result_proba_dict["diagnostics"] = diagnostic_prediction
+    result_proba_dict["status"] = "result"
+
+    return "done"
 
 
-    sound, sample_rate = librosa.load("static/sample_audio.wav")
-    initial_coeff = librosa.feature.mfcc(y=sound, sr=sample_rate, n_mfcc=100)
-    avg_initial_coeff = np.mean(initial_coeff, axis=1)
-    """
+@app.route("/reset", methods=["GET", "POST"])
+def reset():
+    result_proba_dict["status"] = "standby"
+    result_proba_dict["displayText"] = "Welcome to Inspire"
+    return "done"
 
-    res = ml_model.predict_proba([avg_initial_coeff])
+@app.route("/camera", methods=["GET", "POST"])
+def camera():
+    result_proba_dict["status"] = "move_camera"
+    result_proba_dict["displayText"] = "Please move within camera frame"
+    return "done"
 
-    labels = ml_model.classes_
+@app.route("/arm_extension", methods=["GET", "POST"])
+def arm_extension():
+    result_proba_dict["status"] = "arm"
+    result_proba_dict["displayText"] = "Arm calibration"
+    return "done"
 
-    result_proba_dict = {}
-
-    print(labels)
-
-    for i in range(len(labels)):
-        result_proba_dict[labels[i]] = res[0][i]
-
-    return result_proba_dict
+@app.route("/respiration", methods=["GET", "POST"])
+def respiration():
+    result_proba_dict["status"] = "breathe"
+    for i in range(3):
+        result_proba_dict["displayText"] = "Inhale"
+        time.sleep(5)
+        result_proba_dict["displayText"] = "Exhale"
+        time.sleep(5)
+    result_proba_dict["status"] = "processing"
+    result_proba_dict["displayText"] = "Processing data ..."
+    return "done"
 
 
 @app.route("/show_status", methods=["GET"])
