@@ -13,7 +13,7 @@ class Patient:
             }
         }
         self.raw_azure_prediction = {}
-        self.URL = "http://cd8f5b31-36f5-40dd-9adc-47d327a37a9f.southcentralus.azurecontainer.io/score"
+        self.URL = "http://116bd755-7fb9-479e-aeb6-c556f76edf43.eastus.azurecontainer.io/score"
         self.CLASSES = ["Asthma", "Bronchiectasis", "Bronchiolitis", "COPD", "Healthy", "LRTI", "Pneumonia", "URTI"]
 
     def post_data_to_azure(self, data):
