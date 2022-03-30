@@ -7,14 +7,50 @@
         "longitude": -73.570270,
         "inventory": {
             "ProAir HFA": 0,
-            "Azithromycin": 0,
+            "Azithromycin": 200,
             "Ipratropium": 0,
             "Albuterol Levalbuterol": 0,
             "Ibuprofen": 0,
+            "Naproxen": 180,
+            "Aspirin": 80,
+            "Penicilin": 80,
+            "Amoxilin": 0
+        }
+    },
+
+    "Pharmacy 002": {
+        "name": "Pharmaprix",
+        "address": "1 Place Ville Marie Suite 11230, Montréal, QC H3B 3Y1",
+        "latitude": 45.501960,
+        "longitude": -73.568120,
+        "inventory": {
+            "ProAir HFA": 50,
+            "Azithromycin": 0,
+            "Ipratropium": 0,
+            "Albuterol Levalbuterol": 0,
+            "Ibuprofen": 30,
             "Naproxen": 0,
-            "Aspirin": 0,
+            "Aspirin": 50,
             "Penicilin": 0,
             "Amoxilin": 0
+        }
+    },
+
+    "Pharmacy 003": {
+        "name": "Pharmaprix",
+        "address": "4999 Chemin Queen Mary Arr, Montréal, QC H3W 1X4",
+        "latitude": 45.486180,
+        "longitude": -73.627420,
+        "inventory": {
+            "ProAir HFA": 10,
+            "Azithromycin": 10,
+            "Ipratropium": 10,
+            "Albuterol Levalbuterol": 10,
+            "Ibuprofen": 10,
+            "Naproxen": 10,
+            "Aspirin": 10,
+            "Penicilin": 10,
+            "Amoxilin": 10
         }
     }
 

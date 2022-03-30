@@ -6,5 +6,5 @@ global_dict = {
     "geolocation": {
         "latitude": 0.0,
         "longitude": 0.0
-    }
+    },
 }

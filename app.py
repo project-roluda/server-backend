@@ -5,6 +5,7 @@ import numpy as np
 import requests
 from src.shared import global_dict
 from src.prediction import Patient
+from src.generate_treatment import TreatmentModel
 import time
 
 import json as json_lib
@@ -45,8 +46,11 @@ def process_audio():
         if diagnostic_prediction[key] > diagnostic_prediction[max_class]:
             max_class = key 
 
-    treatments = json_lib.load(open("static/treatments.json", 'r'))
-    result_proba_dict["treatment"] = treatments[max_class]
+    # treatments = json_lib.load(open("static/treatments.json", 'r'))
+    # result_proba_dict["treatment"] = treatments[max_class]
+
+    treatment_model = TreatmentModel(result_proba_dict["geolocation"]["latitude"], result_proba_dict["geolocation"]["longitude"])
+    result_proba_dict["treatment"] =  treatment_model.find_treament_for(max_class)
 
     return "done"
 
@@ -105,9 +109,9 @@ def show_status():
 
 @app.route("/set_coordinates/<latitude>/<longitude>")
 def set_coordinates(latitude, longitude):
-    result_proba_dict["geolocation"]["latitude"] = float(latitude)
-    result_proba_dict["geolocation"]["longitude"] = float(longitude)
+    result_proba_dict["geolocation"]["latitude"] = float(latitude.replace(",","").strip())
+    result_proba_dict["geolocation"]["longitude"] = float(longitude.replace(",","").strip())
     return "done", 200
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port=5000)

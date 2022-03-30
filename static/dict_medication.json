@@ -23,7 +23,7 @@
     "Healthy": {
         "medication": [],
         "sources": [],
-        "therapy": [],
+        "therapy": ["You are a healthy individual!"],
         "useMeds": false
     },
     "LRTI": {
