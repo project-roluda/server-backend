@@ -1,0 +1,44 @@
+{
+    "Asthma": {
+        "medication": ["ProAir HFA"],
+        "sources": ["Cleveland Clinic"],
+        "useMeds": true
+    },
+    "Bronchiectasis": {
+        "medication": ["Azithromycin"],
+        "sources": ["Cleveland Clinic", "Medscape"],
+        "useMeds": true
+    },
+    "Bronchiolitis": {
+        "medication": [""],
+        "sources": ["Mayo Clinic"],
+        "therapy": ["Supportive care at home"],
+        "useMeds": false
+    },
+    "COPD": {
+        "medication": ["Ipratropium", "Albuterol Levalbuterol"],
+        "sources": ["Mayo Clinic"],
+        "useMeds": true
+    },
+    "Healthy": {
+        "medication": [],
+        "sources": [],
+        "therapy": [],
+        "useMeds": false
+    },
+    "LRTI": {
+        "medication": ["Ibuprofen", "Naproxen", "Aspirin"],
+        "sources": ["Temple Health"],
+        "useMeds": true
+    },
+    "Pneumonia": {
+        "medication": ["Ibuprofen", "Aspirin"],
+        "sources": ["Mayo Clinic"],
+        "useMeds": true
+    },
+    "URTI": {
+        "medication": ["Penicilin", "Amoxicillin"],
+        "sources": ["Cleveland Clinic"],
+        "useMeds": true
+    }
+}

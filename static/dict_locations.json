@@ -1,0 +1,22 @@
+{
+
+    "Pharmacy 001": {
+        "name": "PJC Jean Coutu",
+        "address": "677 Saint-Catherine St W, Montreal, Quebec H3B 5K4",
+        "latitude": 45.502760,
+        "longitude": -73.570270,
+        "inventory": {
+            "ProAir HFA": 0,
+            "Azithromycin": 0,
+            "Ipratropium": 0,
+            "Albuterol Levalbuterol": 0,
+            "Ibuprofen": 0,
+            "Naproxen": 0,
+            "Aspirin": 0,
+            "Penicilin": 0,
+            "Amoxilin": 0
+        }
+    }
+
+
+}

@@ -1,3 +1,4 @@
+from unittest import result
 from flask import Flask, request
 import joblib
 import numpy as np
@@ -102,5 +103,11 @@ def respiration():
 def show_status():
     return "200"
 
+@app.route("/set_coordinates/<latitude>/<longitude>")
+def set_coordinates(latitude, longitude):
+    result_proba_dict["geolocation"]["latitude"] = float(latitude)
+    result_proba_dict["geolocation"]["longitude"] = float(longitude)
+    return "done", 200
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, host="0.0.0.0")
