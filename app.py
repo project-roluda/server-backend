@@ -113,5 +113,13 @@ def set_coordinates(latitude, longitude):
     result_proba_dict["geolocation"]["longitude"] = float(longitude.replace(",","").strip())
     return "done", 200
 
+
+@app.route("/dummy_pred/<condition>")
+def dummy_pred(condition):
+    treatment_model = TreatmentModel(result_proba_dict["geolocation"]["latitude"], result_proba_dict["geolocation"]["longitude"])
+    res = treatment_model.find_treament_for(condition)
+    result_proba_dict["treatment"] = res
+    return "done", 200
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
