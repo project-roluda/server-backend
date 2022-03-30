@@ -44,7 +44,7 @@ class TreatmentModel:
                         }
 
             for item in self.med_result_dict:
-                self.return_string += f"{item} ({self.med_result_dict[item]['location_distance_km']} km) - "
+                self.return_string += f"{item} ({self.med_result_dict[item]['name']}, {self.med_result_dict[item]['location_distance_km']} km) - "
             
         else:
             self.return_string = medication_result["therapy"]
