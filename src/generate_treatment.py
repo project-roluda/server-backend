@@ -15,6 +15,9 @@ class TreatmentModel:
 
     def find_treament_for(self, condition):
         medication_result = self.medication_dict[condition]
+
+        self.return_string += f"Diagnosis: {condition} - "
+
         if medication_result["useMeds"]:
             self.useMeds = True
             self.currentMeds = medication_result["medication"]
