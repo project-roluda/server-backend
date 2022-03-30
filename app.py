@@ -68,6 +68,24 @@ def arm_extension():
     result_proba_dict["displayText"] = "Arm calibration"
     return "done"
 
+@app.route("/inhale", methods=["GET", "POST"])
+def inhale():
+    result_proba_dict["status"] = "breathe"
+    result_proba_dict["displayText"] = "Inhale"
+    return "done"
+
+@app.route("/exhale", methods=["GET", "POST"])
+def exhale():
+    result_proba_dict["status"] = "breathe"
+    result_proba_dict["displayText"] = "Exhale"
+    return "done"
+
+@app.route("/set_processing", methods=["GET", "POST"])
+def set_processing():
+    result_proba_dict["status"] = "process"
+    result_proba_dict["displayText"] = "Processing data..."
+    return "done"
+
 @app.route("/respiration", methods=["GET", "POST"])
 def respiration():
     result_proba_dict["status"] = "breathe"
@@ -79,7 +97,6 @@ def respiration():
     result_proba_dict["status"] = "processing"
     result_proba_dict["displayText"] = "Processing data ..."
     return "done"
-
 
 @app.route("/show_status", methods=["GET"])
 def show_status():
