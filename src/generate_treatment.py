@@ -27,7 +27,7 @@ class TreatmentModel:
                     user_coords = (self.current_latitude, self.current_longitude)
                     location_coords = (location_dict["latitude"], location_dict["longitude"])
 
-                    distance_km = distance.distance(user_coords, location_coords).km
+                    distance_km = round(distance.distance(user_coords, location_coords).km, 2)
 
                     if (name_of_medication not in self.med_result_dict.keys()):
                         self.med_result_dict[name_of_medication] = {
