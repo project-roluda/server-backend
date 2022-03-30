@@ -70,13 +70,13 @@ def arm_extension():
 
 @app.route("/inhale", methods=["GET", "POST"])
 def inhale():
-    result_proba_dict["status"] = "breathe"
+    result_proba_dict["status"] = "inhale"
     result_proba_dict["displayText"] = "Inhale"
     return "done"
 
 @app.route("/exhale", methods=["GET", "POST"])
 def exhale():
-    result_proba_dict["status"] = "breathe"
+    result_proba_dict["status"] = "exhale"
     result_proba_dict["displayText"] = "Exhale"
     return "done"
 
