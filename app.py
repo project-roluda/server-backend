@@ -82,7 +82,7 @@ def exhale():
 
 @app.route("/set_processing", methods=["GET", "POST"])
 def set_processing():
-    result_proba_dict["status"] = "process"
+    result_proba_dict["status"] = "processing"
     result_proba_dict["displayText"] = "Processing data..."
     return "done"
 
